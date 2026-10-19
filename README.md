@@ -43,7 +43,7 @@ From the scouting report, not yet re-checked:
   - the metadata gives 1961–1996, while the summary says 1962–78;
   - instrument gains changed over time.
 
-The full list, with every source, is in [notes/scouting-2026-10-19.md](notes/scouting-2026-10-19.md).
+The full list, with every source, is in [notes/scouting-2026-10-19.md](notes/scouting-2026-10-19.md). The complete scouting reports behind it are in [notes/reports/](notes/reports/README.md).
 
 ## Who else is working on this
 
@@ -79,6 +79,7 @@ coordinate in [st0a](https://github.com/Foundation-0/st0a). Questions and ideas 
 | `AGENTS.md` | the guide for AI agents |
 | `CLAUDE.md` | makes Claude Code read AGENTS.md |
 | `notes/scouting-2026-10-19.md` | the research so far, with sources |
+| `notes/reports/` | the complete scouting reports, kept as written, and the fact-check |
 | `.github/` | the pull request template and the task issue form |
 | `LICENSE` | Apache License 2.0 |
 
