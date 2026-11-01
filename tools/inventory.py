@@ -29,5 +29,5 @@ def inventory(rows):
     return out,quarantine
 if __name__=='__main__':
     p=argparse.ArgumentParser();p.add_argument('listing');p.add_argument('output');a=p.parse_args()
-    with open(a.listing) as f:rows,quarantine=inventory(csv.DictReader(f))
+    with open(a.listing,encoding='utf-8-sig',newline='') as f:rows,quarantine=inventory(csv.DictReader(f))
     with open(a.output,'w') as f:json.dump(dict(station_months=rows,quarantine=quarantine),f,indent=2)
