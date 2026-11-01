@@ -20,4 +20,21 @@ class OfflineTests(unittest.TestCase):
         self.assertEqual(by_date['5'],dict(date='5',series='swell',reason='no amplitude for day'))
         self.assertEqual(by_date['6'],dict(date='6',series='swell',reason='no amplitude for day'))
 
+    def test_missing_values_are_logged(self):
+        a=[dict(date=str(i),amplitude=i) for i in range(4)]+[dict(date='4',amplitude=None),dict(date='5',amplitude='')]
+        b=[dict(date=str(i),swell=i) for i in range(6)];b[2]=dict(date='2',swell=None)
+        out=m['correlate'](a,b)
+        self.assertEqual(out['n'],3)
+        reasons={(e['date'],e['series']):e['reason'] for e in out['exclusion_log']}
+        self.assertEqual(reasons[('4','amplitude')],'non-finite amplitude')
+        self.assertEqual(reasons[('5','amplitude')],'non-finite amplitude')
+        self.assertEqual(reasons[('2','swell')],'non-finite swell')
+    def test_errors_carry_exclusion_log(self):
+        a=[dict(date=str(i),amplitude=i) for i in range(3)];b=[dict(date=str(i),swell=i) for i in (0,1,7)]
+        with self.assertRaises(ValueError) as c:m['correlate'](a,b)
+        self.assertIn(dict(date='2',series='amplitude',reason='no swell for day'),c.exception.exclusion_log)
+        self.assertIn(dict(date='7',series='swell',reason='no amplitude for day'),c.exception.exclusion_log)
+        with self.assertRaises(ValueError) as c:m['correlate'](a+a[:1],[dict(x,swell=x['amplitude']) for x in a])
+        self.assertEqual(c.exception.exclusion_log,[dict(date='0',series='amplitude',reason='duplicate day')])
+
 if __name__=="__main__":unittest.main()
