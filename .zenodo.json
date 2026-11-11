@@ -1,0 +1,27 @@
+{
+    "creators": [
+        {
+            "name": "Arifuddin, Ahraz"
+        }
+    ],
+    "title": "wwssn-microseisms",
+    "description": "<p>This repository asks whether ocean wave energy, as recorded in seismic microseisms, changed between 1962-78 and today, by measuring microseisms on USGS scans of World-Wide Standardized Seismographic Network film chips (about 3.7 million single-day records from 1962-78, about 5% of the archive).</p><p>Status: not started. No measurements or trends from this project are present yet.</p><p>Directed by Ahraz Arifuddin</p><p>Researched and verified by different model families across Gemini, Claude, Grok, OpenAI, and Muse</p>",
+    "upload_type": "software",
+    "license": "Apache-2.0",
+    "keywords": [
+        "climate",
+        "data-rescue",
+        "foundation0",
+        "microseisms",
+        "ocean-waves",
+        "seismology"
+    ],
+    "related_identifiers": [
+        {
+            "identifier": "https://github.com/Foundation-0/wwssn-microseisms",
+            "relation": "isSupplementTo",
+            "scheme": "url",
+            "resource_type": "software"
+        }
+    ]
+}
