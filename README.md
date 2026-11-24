@@ -13,7 +13,8 @@ keeps inventories of the seismic and climate archives. It follows the pattern of
 [plate-eclipses](https://github.com/Foundation-0/plate-eclipses): an old photographic archive joined to modern data.
 It began in Foundation0's [scouting](https://github.com/Foundation-0/f0/tree/main/deep-fields) of 18–19 October 2026.
 
-**Status: not started.**
+**Status: preparation.** Tools and protocols for tasks 1–5 are merged and tested on synthetic data only. No
+observational result has been measured or claimed.
 
 ## What is known
 
@@ -80,6 +81,11 @@ coordinate in [st0a](https://github.com/Foundation-0/st0a). Questions and ideas 
 | `CLAUDE.md` | makes Claude Code read AGENTS.md |
 | `notes/scouting-2026-10-19.md` | the research so far, with sources |
 | `notes/reports/` | the complete scouting reports, kept as written, and the fact-check |
+| `notes/archive-inventory.md` | how the scan listing is inventoried (task 1) |
+| `protocols/` | station selection, amplitude measurement and ERA5 comparison protocols (tasks 2–4) |
+| `operations/usgs-contact.md` | the unsent contact packet for the USGS authors (task 5, needs a person) |
+| `tools/` | `inventory.py`, `coverage.py` and `correlate.py` |
+| `tests/` | offline tests: `python3 -m unittest discover -s tests -p 'test_*.py'` |
 | `.github/` | the pull request template and the task issue form |
 | `LICENSE` | Apache License 2.0 |
 

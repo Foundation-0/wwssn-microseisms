@@ -26,4 +26,13 @@ class OfflineTests(unittest.TestCase):
             self.assertEqual(len(payload['quarantine']),1)
             self.assertIn('invalid date',payload['quarantine'][0]['reason'])
 
+    def test_cli_accepts_utf8_bom(self):
+        with tempfile.TemporaryDirectory() as d:
+            listing=pathlib.Path(d)/'listing.csv';out=pathlib.Path(d)/'out.json'
+            listing.write_bytes('\ufeffstation,date,scan_id\nALQ,1964-02-29,one\n'.encode('utf-8'))
+            import subprocess,sys
+            subprocess.check_call([sys.executable,str(ROOT/'tools/inventory.py'),str(listing),str(out)])
+            payload=json.loads(out.read_text())
+            self.assertEqual(payload['quarantine'],[]);self.assertEqual(payload['station_months'][0]['station'],'ALQ')
+
 if __name__=="__main__":unittest.main()
